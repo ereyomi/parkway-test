@@ -1,20 +1,25 @@
+.progressBarSection {
+    width: 100%;
+    height: auto;
+}
 .progressBar {
+    width: 100%;
     background: black;
-    padding: 20px 25px;
+    padding: 20px;
 }
 .innerHolder {
     background: grey;
     width: 100%;
-    height: 50px;
+    height: auto;
     border-radius: 50px;
     box-shadow: 0 5px 17px rgba(40, 40, 40, 0.5),0 0 3px 1px rgba(40, 40, 40, 0.5) inset;
     padding: 10px;
 }
 .progress {
     background: rgb(235,211,21);
-background: linear-gradient(180deg, rgba(235,211,21,1) 0%, rgba(255,98,0,1) 100%);
+    background: linear-gradient(180deg, rgba(235,211,21,1) 0%, rgba(255,98,0,1) 100%);
     width: 100%;
-    height: 50px;
+    height: 40px;
     border-radius: 50px;
     box-shadow: 0 3px 3px -5px grey, 0 2px 5px grey;
 }
