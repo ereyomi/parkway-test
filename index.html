@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
     <div class="container">
         <!-- warnTheDevSection -->
         <div class="warnDev">
-            <form>
+            <form id=warnDevForm>
                 <div class="formGroup">
-                    <label for="devChairNumber"></label>
-                    <input type="number" name="devChairNumber" id="">
+                    <label for="devChairNumber">Dev number by Number of Sit</label>
+                    <input type="number" name="devChairNumber" id="" min="0">
                 </div>
                 <div class="formGroup">
-                    <label for="numOfSweet"></label>
-                    <input type="number" name="numOfSweet" id="">
+                    <label for="numOfSweet">Number of Sweet</label>
+                    <input type="number" name="numOfSweet" id="" min="0">
                 </div>
                 <div class="formGroup">
-                    <label for="chairStartPosition"></label>
-                    <input type="number" name="chairStartPosition" id="">
+                    <label for="chairStartPosition">Chair position to start from</label>
+                    <input type="number" name="chairStartPosition" id="" min="0">
+                </div>
+                <div class="formGroup">
+                    <button type="submit">Warn Dev</button>
                 </div>
             </form>
+            <div id="displayWarnToDev">
+
+            </div>
         </div>
         <!--  -->
         <!-- progress Bar -->
