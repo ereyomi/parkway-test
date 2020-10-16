@@ -5,29 +5,33 @@
     chairStartPosition: an integer, the chair number to begin passing out sweets from
 */
 const warnTheDeveoper = ( devNumOfChair, numOfSweet, chairStartPosition ) => {
-    console.log(devNumOfChair, numOfSweet,chairStartPosition)
+    console.log( devNumOfChair, numOfSweet, chairStartPosition )
     let warnDev = chairStartPosition
     if ( chairStartPosition > devNumOfChair )
     {
         return 'start positition should not be greater than the number of chairs available for developers'
     }
-    for (let sweetIndex = 1; sweetIndex <= numOfSweet; sweetIndex++) {
+    for ( let sweetIndex = 1; sweetIndex <= numOfSweet; sweetIndex++ )
+    {
         // check and continue process or possibly reset warnDev to 1
-        if ( sweetIndex === numOfSweet ) {
+        if ( sweetIndex === numOfSweet )
+        {
             break;
         }
-        if ( warnDev === devNumOfChair ) {
+        if ( warnDev === devNumOfChair )
+        {
             warnDev = 1
-        } else {
+        } else
+        {
             warnDev++
         }
     }
-    return `warn Developer sitting on sit ${warnDev}`
-}
+    return `warn Developer sitting on sit ${ warnDev }`
+};
 
 
 const theWarnDevForm = document.querySelector( '#warnDevForm' )
-theWarnDevForm.addEventListener( 'submit', (event) => {
+theWarnDevForm.addEventListener( 'submit', ( event ) => {
     event.preventDefault();
     // get data from form
     /* 
@@ -38,15 +42,37 @@ theWarnDevForm.addEventListener( 'submit', (event) => {
     const getWarnDevFormById = document.forms.warnDevForm
     const warnDevFormData = new FormData( getWarnDevFormById )
     // get inputs by name attribute
-    const devChairNumber = warnDevFormData.get('devChairNumber')
-    const numOfSweet = warnDevFormData.get('numOfSweet')
+    const devChairNumber = warnDevFormData.get( 'devChairNumber' )
+    const numOfSweet = warnDevFormData.get( 'numOfSweet' )
     const chairStartPosition = warnDevFormData.get( 'chairStartPosition' )
     
     // warn dev
     const warnDeveoper = warnTheDeveoper( Number( devChairNumber ), Number( numOfSweet ), Number( chairStartPosition ) )
 
     // display result
-    document.querySelector('#displayWarnToDev').innerHTML = warnDeveoper;
+    document.querySelector( '#displayWarnToDev' ).innerHTML = warnDeveoper;
 
-})
+} );
 
+const progressInput = document.querySelector( '#progressInput' );
+const progressBar = document.querySelector( '.progress' );
+const innerHolder = document.querySelector( '.innerHolder' )
+const innerHolderHeight = innerHolder.clientHeight;
+progressInput.addEventListener( 'keyup', () => {
+    const getProgressValue = progressInput.value
+    console.log(getProgressValue, innerHolder.clientHeight)
+    if ( getProgressValue === 0 || getProgressValue === '' )
+    {
+        innerHolder.style.height = `${innerHolderHeight}px`
+        progressBar.style.display = 'none'
+    } else if ( getProgressValue >= 100 ) 
+    {
+        progressBar.style.display = 'block'
+        progressBar.style.width = '100%';
+    } else
+    {
+        progressBar.style.display = 'block'
+        progressBar.style.width = `${progressInput.value}%`;
+    }
+    
+} );
